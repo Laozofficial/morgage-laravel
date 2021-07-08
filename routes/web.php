@@ -22,4 +22,4 @@ Route::get('/application-form', function () {
     return view('application-form');
 });
 
-Route::post('save_application', [ApplicationController::class, 'save_application']);
+

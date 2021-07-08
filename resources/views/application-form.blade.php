@@ -33,6 +33,9 @@
   <h1 class="text-center">Application Form</h1>
 
   <div class="mt-5" id="app">
+      <div class="alert alert-success" v-show="success">
+          <p>Information submitted successfully , we will get back to you with updates soon</p>
+      </div>
     <div>
       <label>Full Name</label>
       <input class="form-control mb-3" type="text" v-model="full_name" placeholder="full Name"/>
@@ -84,18 +87,19 @@
    el:'#app',
    data: {
 
-    full_name: '',
-    bank_name: '' ,
-    work_place: '',
+    full_name: 'Alao Ojo Ifeoluwa',
+    bank_name: 'Access Bank' ,
+    work_place: 'Ellisoncorp',
     dob: '',
-    bvn: '',
+    bvn: '42423424525',
     drivers_licence: '',
     avatar: '',
-    address: '',
-    email: '',
-    phone: '',
+    address: 'Military cantonment ikeja',
+    email: 'laozofficial@gmail.com',
+    phone: '1243453434',
 
-    submit: 'submit'
+    submit: 'submit',
+    success: false
    },
    mounted() {
    },
@@ -121,10 +125,11 @@
         fd.append('email', this.email)
         fd.append('phone_number', this.phone)
 
-        axios.post('/save_application', fd)
+        axios.post('/api/save_application', fd)
             .then((response) => {
                 console.lg(response);
                 alert(response.data.success);
+                this.success = true;
             })
             .catch((error) => {
                 console.log(error);

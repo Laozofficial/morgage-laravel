@@ -14,8 +14,25 @@ class ApplicationController extends Controller
         $application->work_place = $request->input('work_place');
         $application->bank_name = $request->input('dob');
         $application->bvn = $request->input('bvn');
-        $application->driver_licence = $request->input('driver_licence');
-        $application->avatar = $request->input('avatar');
+        $application->dob = $request->input('dob');
+        if ($request->hasFile('driver_licence')) {
+            $file = $request->file('driver_licence');
+            $extension = $file->getClientOriginalExtension(); // you can also use file name
+            $driver_licence =  '-1-' . time() . '.' . $extension;
+            $path = Env('PUBLIC_IMAGE_PATH');
+            $upload = $file->move($path, $driver_licence);
+
+            $application->driver_licence = $request->input('driver_licence');
+        }
+        if ($request->hasFile('avatar')) {
+            $file = $request->file('avatar');
+            $extension = $file->getClientOriginalExtension(); // you can also use file name
+            $avatar =  '-1-' . time() . '.' . $extension;
+            $path = Env('PUBLIC_IMAGE_PATH');
+            $upload = $file->move($path, $avatar);
+
+            $application->avatar = $avatar;
+        }
         $application->address = $request->input('address');
         $application->email = $request->input('email');
         $application->phone_number = $request->input('phone_number');
