@@ -127,7 +127,7 @@
 
         axios.post('/api/save_application', fd)
             .then((response) => {
-                console.lg(response);
+                console.log(response);
                 alert(response.data.success);
                 this.success = true;
             })

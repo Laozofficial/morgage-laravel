@@ -12,7 +12,7 @@ class ApplicationController extends Controller
         $application = new Application;
         $application->full_name = $request->input('full_name');
         $application->work_place = $request->input('work_place');
-        $application->bank_name = $request->input('dob');
+        $application->bank_name = $request->input('bank_name');
         $application->bvn = $request->input('bvn');
         $application->dob = $request->input('dob');
         if ($request->hasFile('driver_licence')) {
@@ -22,7 +22,7 @@ class ApplicationController extends Controller
             $path = Env('PUBLIC_IMAGE_PATH');
             $upload = $file->move($path, $driver_licence);
 
-            $application->driver_licence = $request->input('driver_licence');
+            $application->driver_licence = $driver_licence;
         }
         if ($request->hasFile('avatar')) {
             $file = $request->file('avatar');

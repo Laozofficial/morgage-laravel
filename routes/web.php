@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApplicationController;
+use App\Models\Application;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,4 +23,10 @@ Route::get('/application-form', function () {
     return view('application-form');
 });
 
+Route::get('/applicants', function () {
+    $users = Application::orderBy('id', 'desc')->get();
+    return view('applicants', [
+        'users' => $users
+    ]);
+});
 

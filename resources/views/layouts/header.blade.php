@@ -9,12 +9,9 @@
 			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
 			<input type="checkbox" id="drop" />
 			<ul class="menu ml-auto mt-1">
-				<li class="active"><a href="index.html">Home</a></li>
-				<li class=""><a href="about.html">About</a></li>
-				<li class=""><a href="services.html">Services</a></li>
-				<li class=""><a href="blog.html">Blog</a></li>
-				<li class=""><a href="contact.html">Contact</a></li>
-				<li class="last-grid"><a href="#">Call Now</a></li>
+				<li class="active"><a href="/">Home</a></li>
+				<li class=""><a href="/application-form">Application Form</a></li>
+				<li class=""><a href="/applicants">View Applicants</a></li>
 			</ul>
 		</nav>
 		<!-- //nav -->
